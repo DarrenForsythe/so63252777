@@ -38,6 +38,15 @@ public class User {
   }
 
   @Override
+  public String toString() {
+    return "User{" +
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", food='" + food + '\'' +
+            '}';
+  }
+
+  @Override
   public boolean equals(final Object o) {
     if (this == o) {
       return true;

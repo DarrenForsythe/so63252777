@@ -20,9 +20,4 @@ public class So63252777Application {
   UserService userService(UserRepository userRepository) {
     return new UserService(userRepository);
   }
-
-  @Bean
-  ApplicationRunner insertAndLogUser(UserService userService) {
-    return args -> LOGGER.info("saved - {}", userService.newUser("Darren", "fajita"));
-  }
 }

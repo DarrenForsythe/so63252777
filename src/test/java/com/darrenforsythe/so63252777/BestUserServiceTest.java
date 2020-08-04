@@ -33,13 +33,18 @@ class BestUserServiceTest {
   }
 
   @Test
-  void saveUser() {
+  void saveUser(@Autowired UserRepository userRepository) {
     String name = "Steve";
     String food = "Apple";
 
     User savedUser = userService.newUser(name, food);
-
     assertEquals(savedUser.getName(), name);
     assertEquals(savedUser.getFood(), food);
+
+
+    //Quick example to flush to DB and count number of saved records.
+    userRepository.flush();
+
+    assertEquals(1, userRepository.count());
   }
 }
